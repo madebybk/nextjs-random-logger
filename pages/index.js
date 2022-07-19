@@ -37,19 +37,18 @@ export default function Home() {
         <link rel="icon" href="/favicon.png" />
       </Head>
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to EKS Observability <a href="https://workshops.aws/">Workshop!</a>
-        </h1>
+        <h1 className={styles.title}>Random Log Generator </h1>
+        <h1 className={styles.title}>EKS <a href="https://workshops.aws/">Workshop</a></h1>
         <p className={styles.description}>
           Select the frequency and duration of the logs, and click the submit button on {' '}
-          <code className={styles.code}>Random Log Generator</code>
+          <code className={styles.code}>Random JSON Logger</code>
           {' '} below to generate random JSON logs.
         </p>
         <div className={styles.grid}>
           {!submitted
             ?
             <div className={styles.card}>
-              <h2>Random Log Generator &rarr;</h2>
+              <h2>Random JSON Logger &rarr;</h2>
               <form action="/api/log_generator" method="post" onSubmit={handleSubmit}>
                 <label htmlFor="numLogs">Number of logs per second: </label>
                 <select id="numLogs" name="numLogs" required="required" className={styles.dropdown}>
@@ -75,7 +74,7 @@ export default function Home() {
             </div>
             :
             <div className={styles.card}>
-              <h2>Random Log Generator &rarr;</h2>
+              <h2>Random JSON Logger &rarr;</h2>
               <p>Random log generator has been initiated! Random JSON log data will be sent for the duration you specified.</p>
             </div>
           }
@@ -83,7 +82,7 @@ export default function Home() {
       </main>
 
       <footer className={styles.footer}>
-        Find this app @github/madebybk/eksworkshop
+        Find this app @ github.com/madebybk/nextjs-random-logger
       </footer>
     </div>
   )
