@@ -4,6 +4,8 @@ import styles from '../styles/Home.module.css'
 
 export default function Home() {
   const [submitted, setSubmitted] = useState(false);
+  const [logFreq, setLogFreq] = useState(0);
+  const [logDuration, setLogDuration] = useState(0);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -26,6 +28,10 @@ export default function Home() {
     };
     const res = await fetch(endpoint, options);
     const result = await res.json();
+
+    // Update State
+    setLogFreq(data.numLogs)
+    setLogDuration(data.duration)
     setSubmitted(true)
   }
 
@@ -75,7 +81,7 @@ export default function Home() {
             :
             <div className={styles.card}>
               <h2>Random JSON Logger &rarr;</h2>
-              <p>Random log generator has been initiated! Random JSON log data will be sent for the duration you specified.</p>
+              <p>Random log generator has been initiated! Random JSON log data will be sent <b>{logFreq} time{logFreq > 1 ? 's' : ''} per second</b> for <b>{logDuration} minute{logDuration > 1 ? 's' : ''}.</b></p>
             </div>
           }
         </div>
