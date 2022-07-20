@@ -68,6 +68,11 @@ export default function Home() {
                   <option value="8">8</option>
                   <option value="9">9</option>
                   <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                  <option value="13">13</option>
+                  <option value="14">14</option>
+                  <option value="15">15</option>
                 </select>
                 <label htmlFor="duration">Duration of the logs: </label>
                 <select id="duration" name="duration" required="required" className={styles.dropdown}>
@@ -81,6 +86,11 @@ export default function Home() {
                   <option value="8">8 minutes</option>
                   <option value="9">9 minutes</option>
                   <option value="10">10 minutes</option>
+                  <option value="20">20 minutes</option>
+                  <option value="30">30 minutes</option>
+                  <option value="40">40 minutes</option>
+                  <option value="50">50 minutes</option>
+                  <option value="60">60 minutes</option>
                 </select>
                 <button type="submit" className={styles.submit}>Submit</button>
               </form>

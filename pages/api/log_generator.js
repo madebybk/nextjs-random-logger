@@ -9,7 +9,7 @@ const generateRandomLogData = (num) => {
     const errCode = `err_0${randomNum}`;
 
     // JSON log data
-    const logData = JSON.stringify({timestamp: `${currTime}`,level: "info",error_code: errCode,server_protocol: "HTTP/1.1",request_method: "GET",request_uri: "/api/logger",message: `This is a sample log message #${num}`});
+    const logData = JSON.stringify({timestamp: `${currTime}`,level: "info",error_code: errCode,server_protocol: "HTTP/1.1",request_method: "GET",request_uri: "/api/logger",message: `This is a sample log message no. ${num}`}).replace(/\\n/g, '');
     console.log(logData)
 }
 
