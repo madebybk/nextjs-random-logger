@@ -56,11 +56,18 @@ export default function Home() {
             <div className={styles.card}>
               <h2>Random JSON Logger &rarr;</h2>
               <form action="/api/log_generator" method="post" onSubmit={handleSubmit}>
-                <label htmlFor="numLogs">Number of logs per second: </label>
+                <label htmlFor="numLogs">Records per second: </label>
                 <select id="numLogs" name="numLogs" required="required" className={styles.dropdown}>
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
                 </select>
                 <label htmlFor="duration">Duration of the logs: </label>
                 <select id="duration" name="duration" required="required" className={styles.dropdown}>
