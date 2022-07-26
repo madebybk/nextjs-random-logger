@@ -33,7 +33,7 @@ const generateData = async (numLogs, duration) => {
 export default async function handler(req, res) {
     // Get current time
     const currTime = new Date().toISOString();
-    console.log(JSON.stringify({timestamp: `${currTime}`,level: "info",error_code: 'info_01',server_protocol: "HTTP/1.1",request_method: "GET",request_uri: "/api/logger",message: "Log generation initiated.."}))
+    console.log(JSON.stringify({timestamp: `${currTime}`,level: "info",error_code: 'info_01',status: "OK",server_protocol: "HTTP/1.1",request_method: "GET",request_uri: "/api/logger",message: "Log generation initiated.."}))
 
     const message = await generateData(req.body.numLogs, req.body.duration);
 
