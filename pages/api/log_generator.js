@@ -4,12 +4,18 @@ const generateRandomLogData = (num) => {
     // Get current time
     const currTime = new Date().toISOString();
 
-    // Create randome error code (between 1 and 5)
-    const randomNum = Math.floor(Math.random() * 5 + 1);
-    const errCode = `err_0${randomNum}`;
+    // Create random error code (between 1 and 5)
+    const randomNumCode = Math.floor(Math.random() * 5 + 1);
+    const errCode = `err_0${randomNumCode}`;
+
+    // Create random status result
+    const randomNumStatus = Math.floor(Math.random() * 100 + 1);
+    const status = randomNumStatus < 70 ? 'OK' :
+        randomNumStatus < 95 ? 'WARN' :
+        'FAIL';
 
     // JSON log data
-    const logData = JSON.stringify({timestamp: `${currTime}`,level: "info",error_code: errCode,server_protocol: "HTTP/1.1",request_method: "GET",request_uri: "/api/logger",message: `This is a sample log message no. ${num}`}).replace(/\\n/g, '');
+    const logData = JSON.stringify({timestamp: `${currTime}`,level: "info",error_code: errCode,status: `${status}`,server_protocol: "HTTP/1.1",request_method: "GET",request_uri: "/api/logger",message: `This is a sample log message no. ${num}`}).replace(/[\n\r\t]/g,"");
     console.log(logData)
 }
 
@@ -18,7 +24,7 @@ const generateData = async (numLogs, duration) => {
     const freq = 1000 / numLogs;
     for (let i = 0; i < totalSeconds; i++) {
         setTimeout(function timer() {
-            generateRandomLogData(i);
+            generateRandomLogData(i+1);
         }, i * freq);
     }
     return 'Job finished';
