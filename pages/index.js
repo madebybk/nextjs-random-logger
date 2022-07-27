@@ -44,7 +44,7 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <h1 className={styles.title}>Random Log Generator </h1>
-        <h1 className={styles.title}>EKS <a href="https://workshops.aws/">Workshop</a></h1>
+        <h1 className={styles.title}>EKS <a href="https://madebybk.gitbook.io/eks-observability-workshop/">Workshop</a></h1>
         <p className={styles.description}>
           Select the frequency and duration of the logs, and click the submit button on {' '}
           <code className={styles.code}>Random JSON Logger</code>
