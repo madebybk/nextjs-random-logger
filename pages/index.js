@@ -86,15 +86,6 @@ export default function Home() {
                   <option value="800">800</option>
                   <option value="900">900</option>
                   <option value="1000">1000</option>
-                  <option value="2000">2000</option>
-                  <option value="3000">3000</option>
-                  <option value="4000">4000</option>
-                  <option value="5000">5000</option>
-                  <option value="6000">6000</option>
-                  <option value="7000">7000</option>
-                  <option value="8000">8000</option>
-                  <option value="9000">9000</option>
-                  <option value="10000">10000</option>
                 </select>
                 <label htmlFor="duration">Duration of the logs: </label>
                 <select id="duration" name="duration" required="required" className={styles.dropdown}>
