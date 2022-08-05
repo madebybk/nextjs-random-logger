@@ -1,11 +1,13 @@
 import Head from 'next/head'
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
   const [submitted, setSubmitted] = useState(false);
   const [logFreq, setLogFreq] = useState(0);
   const [logDuration, setLogDuration] = useState(0);
+  const [throughput, setThroughput] = useState(0.27);
+  const numLogsRef = useRef();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -35,6 +37,12 @@ export default function Home() {
     setSubmitted(true)
   }
 
+  const handleChange = async () => {
+    const currNumLogs = numLogsRef.current.value;
+    const estimatedThroughput = parseFloat(currNumLogs * 270 / 1000); // in KB per second
+    setThroughput(estimatedThroughput);
+  }
+
   return (
     <div className={styles.container}>
       <Head>
@@ -55,9 +63,9 @@ export default function Home() {
             ?
             <div className={styles.card}>
               <h2>Random JSON Logger &rarr;</h2>
-              <form action="/api/log_generator" method="post" onSubmit={handleSubmit}>
+              <form action="/api/log_generator" method="post" onSubmit={handleSubmit} onChange={handleChange}>
                 <label htmlFor="numLogs">Records per second: </label>
-                <select id="numLogs" name="numLogs" required="required" className={styles.dropdown}>
+                <select id="numLogs" name="numLogs" required="required" ref={numLogsRef} className={styles.dropdown}>
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
@@ -107,6 +115,7 @@ export default function Home() {
                   <option value="90">90 minutes</option>
                   <option value="120">120 minutes</option>
                 </select>
+                <h4 style={{fontWeight: "normal"}}>Estimated Throughput: <b>{throughput} KB/s</b></h4>
                 <button type="submit" className={styles.submit}>Submit</button>
               </form>
             </div>
